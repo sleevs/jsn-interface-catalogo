@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Produto</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">MSES</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/add">Add Produto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/perfil">Profile Usuário</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Sair</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!--Main Content-->
+    <div class="mt-5">
+        <h1 class="text-center">Catalogo de Produto</h1>
+        <div class="container">
+            <!--Add  Button-->
+            <div class="my-3">
+                <a href="/add"><button type="button" class="btn btn-primary">Add Produto</button></a>
+            </div>
+            <table class="table border" >
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Fornecedor</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Usuário</th>
+                    <th scope="col">Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let produto of produtos">
+                    <td>{{produto.produtoId}}</td>
+                    <td>{{produto.produtoNome}}</td>
+                    <td>{{produto.produtoFornecedor}}</td>
+                    <td>{{produto.produtoValor}}</td>
+                    <td>{{produto.usuarioId}}</td>
+                    <td>
+                        <div class="d-inline mx-2">
+                            <button class="btn btn-warning" (click)="updateProduto(produto.produtoId)" type="button">Atualizar</button>
+                        </div>
+                        <div class="d-inline">
+                          <button class="btn btn-danger" (click)="deleteProduto(produto.produtoId)" type="button">Deletar</button>
+                        </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>
+</html>
+
+<router-outlet></router-outlet>
