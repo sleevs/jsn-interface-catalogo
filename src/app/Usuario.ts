@@ -1,6 +1,6 @@
 export interface Usuario{
 
-    usurioId: number
+    usuarioId: number
     usuarioNome: string
     usuarioEmail: string
     usuarioSenha:string

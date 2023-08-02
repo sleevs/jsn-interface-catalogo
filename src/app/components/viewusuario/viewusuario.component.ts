@@ -15,31 +15,50 @@ export class ViewusuarioComponent implements OnInit {
 
 
   usuario?: Usuario
-  dataId: any
-  dataEmail: any
-  dataNome: any
+  usuarioNome : any
+  usuarioEmail : any
+  usuarioId : any
   loginRequest: any | undefined
-  url: string = "http://localhost:8083/";
+  usuarios: any[] | undefined
+    url: string = "http://localhost:8083/";
   
 
   constructor(private service: AppService, private route: ActivatedRoute, private router : Router) {
 
-    this.dataEmail ;
-    this.dataId ;
-    this.dataNome ;
+    this.usuarioNome ;
+    this.usuarioEmail ;
+    this.usuarioId ;
    }
 
   
     ngOnInit(): void {
-      this.dataId = this.route.snapshot.params['usuarioId'];
-      this.dataEmail = this.route.snapshot.params['usuarioEmail'];
-     this.dataNome = this.route.snapshot.params['usuarioNome'];
- 
-     
+      let id = this.route.snapshot.params['id'];
+      this.service.getUsuarioById(id).subscribe(data => {
+        this.usuario = data
+
+     this.usuarioNome = data.usuarioNome;
+    this.usuarioEmail = data.usuarioEmail;
+    this.usuarioId = data.usuarioId;
+        console.log(this.usuario)
    
 
+      })
+ 
+     
+    }
+    deleteUsuario(id: number){
+      this.service.deleteUsuario(id).subscribe(data => {
+        this.usuarios = this.usuarios?.filter(usuario => usuario.usuarioId !== id);
+      })
+      
+        setTimeout(()=>{
+          window.location.reload();
+        }, 100);
+    
     }
   
-
+    updateUsuario(id: number){
+      this.router.navigate(['updatePerfil', id]);
+    }
   
   }

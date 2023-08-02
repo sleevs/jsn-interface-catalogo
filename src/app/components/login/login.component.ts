@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
     this.service.login(this.data).subscribe(data => {
 
            console.log(data);
-           
-      this.router.navigate(['perfil' , data]); 
+           let id = data.usuarioId ;     
+      this.router.navigate(['perfil' , id]); 
     })
    
   }

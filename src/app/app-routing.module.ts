@@ -6,15 +6,16 @@ import {UpdateprodutoComponent} from './components/updateproduto/updateproduto.c
 import {LoginComponent} from './components/login/login.component';
 import {ViewusuarioComponent} from './components/viewusuario/viewusuario.component';
 import {AddusuarioComponent} from './components/addusuario/addusuario.component';
-
+import {UpdateusuarioComponent} from './components/updateusuario/updateusuario.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'add', component: AddprodutoComponent },
   { path: 'update/:id', component: UpdateprodutoComponent },
   { path: 'view', component: ViewprodutoComponent },
-  { path: 'perfil', component: ViewusuarioComponent },
+  { path: 'perfil/:id', component: ViewusuarioComponent },
   { path: 'novo', component:AddusuarioComponent},
+  { path: 'updatePerfil/:id', component:UpdateusuarioComponent},
 ];
 
 @NgModule({

@@ -36,13 +36,13 @@
 
         <div class="card" style="width: 30rem;">
        
-          <a  class="btn btn-primary">ID : {{dataId}}</a>
+          <a  class="btn btn-primary">ID : {{usuarioId}}</a>
           <div class="card-body">
-            <h5 class="card-title">{{dataNome}}</h5>
-            <h5 class="card-text">{{dataEmail}}</h5>
-            <a  class="btn btn-warning">Editar</a>
+            <h5 class="card-title">{{usuarioNome}}</h5>
+            <h5 class="card-text">{{usuarioEmail}}</h5>
+            <button  class="btn btn-warning" (click)="updateUsuario(usuarioId)" >Editar</button>
            
-            <a  class="btn btn-danger">Deletar</a>
+            <button  class="btn btn-danger" (click)="deleteUsuario(usuarioId)" >Deletar</button>
           </div>
         </div>
         

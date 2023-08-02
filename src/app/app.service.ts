@@ -53,7 +53,7 @@ export class AppService {
   }
 
   getProdutoById(id: number): Observable<Produto>{
-    return this.http.get<Produto>(`${this.url}buscar/${id}`)
+    return this.http.get<Produto>(`${this.url}produto/buscar/${id}`)
   }
 
   updateProduto(id?: number ,produto?: any): Observable<any>{
